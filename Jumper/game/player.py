@@ -15,7 +15,38 @@ class Player:
             self (player): An instance of player.
         """
         self._life = 4
+        self._line1 =  '''
+                     _____
+                        '''
+        self._line2 = '''
+                    /_____\
+        '''
+        self._line3 = '''
+
+                    \     / '''
+        self._line4 = '''
+                     \   /
+        '''
+        self._line5 = "0"
+        self._line6 = '''
+                      /|\
+                      / \
+                    '''
     
+    def display_parachute(parachute):
+        print(f'''
+          _____
+         /_____\
+         \     /
+          \   / 
+            0
+           /|\
+           / \
+    
+    ''')
+    self._line1 =  '''_____
+                     /_____\
+                     '''
     def get_hint(self):
         """Gets a hint for the seeker.
 

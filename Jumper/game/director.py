@@ -20,6 +20,7 @@ class Director:
         self._player = Player()
         self._terminal_service = TerminalService()
         self._incorrect_guess = []
+        self._user_input = ""
         
         
     def start_game(self):
@@ -31,23 +32,25 @@ class Director:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
-
+# The self.user_input arguement didn't exist, so I created it.
     def _get_inputs(self):
         """
 
         Args:
             self (Director): An instance of Director.
         """
-        self.user_input = input("Guess a letter [a-z] ")
-        
+        self._user_input = input("Guess a letter [a-z] ")
+#We are only using five letter words, so you can reduce the code here.
+#The if statement on line 53 is empty, I added a pass to it so that the code wouldn't
+#complain about being broken.
     def _do_updates(self):
         """
         Args:
             self (Director): An instance of Director.
         """
         for i in range(0, len(self._jumper.word)):
-            serching = self._jumper.word[i]
-            if serching == self.user_input:
+            searching = self._jumper.word[i]
+            if searching == self._user_input:
                 #Set undercore index i equal to searching
                 #It needs a list of underscores to loop through 
                 pass

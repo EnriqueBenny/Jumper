@@ -16,8 +16,11 @@ class Director:
             self (Director): an instance of Director.
         """
         self._is_playing = True
+        self._player = Jumper()
+        self._player = Player()
         self._terminal_service = TerminalService()
         self._incorrect_guess = []
+        
         
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -52,6 +55,6 @@ class Director:
             self (Director): An instance of Director.
         """
         hint = self._hider.get_hint()
-        self._terminal_service.write_text(hint)
+        self._terminal_service.read_number(hint)
         if self._hider.is_found():
             self._is_playing = False

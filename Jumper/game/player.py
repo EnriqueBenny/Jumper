@@ -1,5 +1,3 @@
-import random
-
 class Player:
     """The person hiding from the Seeker. 
     
@@ -11,24 +9,23 @@ class Player:
     """
 
     def __init__(self):
-        """Constructs a new Hider.
+        """Constructs a new Player.
 
         Args:
-            self (Hider): An instance of Hider.
+            self (player): An instance of player.
         """
-        self._location = random.randint(1, 1000)
-        self._distance = [0, 0] # start with two so get_hint always works
+        self._life = 4
     
     def get_hint(self):
         """Gets a hint for the seeker.
 
         Args:
-            self (Hider): An instance of Hider.
+            self (player): An instance of player.
         Returns:
-            string: A hint for the seeker.
+            string: A hint for the player.
         """
         hint = "(-.-) Nap time."
-        if self._distance[-1] == 0:
+        if self._life[-1] == 0:
             hint = "(;.;) You found me!"
         elif self._distance[-1] > self._distance[-2]:
             hint = "(^.^) Getting colder!"
@@ -37,10 +34,10 @@ class Player:
         return hint
 
     def is_found(self):
-        """Whether or not the hider has been found.
+        """Whether or not the letter has been found.
 
         Args:
-            self (Hider): An instance of Hider.
+            self (player): An instance of player.
             
         Returns:
             boolean: True if the hider was found; false if otherwise.

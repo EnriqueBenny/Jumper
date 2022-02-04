@@ -1,7 +1,7 @@
 # TODO: Implement the Seeker class as follows...
 
 # 1) Add the class declaration. Use the following class comment.
-class Seeker:
+class Jumper:
     """The person looking for the Hider. 
     The responsibility of a Seeker is to keep track of its location and distance travelled.
     Attributes:

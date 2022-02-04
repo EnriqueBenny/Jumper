@@ -1,7 +1,7 @@
 class Player:
-    """The person hiding from the Seeker. 
+    """The person falling with a parachute. 
     
-    The responsibility of Hider is to keep track of its location and distance from the seeker. 
+    The responsibility of player is to keep track of its parachute. 
     
     Attributes:
         _location (int): The location of the hider (1-1000).
@@ -34,6 +34,9 @@ class Player:
                     '''
     
     def display_parachute(self):
+        """Args:
+            self (player): An instance of player.
+            """
         print(f'''
                 {self._line1}
                 {self._line2}

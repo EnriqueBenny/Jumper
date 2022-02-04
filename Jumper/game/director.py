@@ -15,12 +15,18 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        ob = Jumper.get_word()
         self._is_playing = True
         self._jumper = Jumper()
         self._player = Player()
         self._terminal_service = TerminalService()
         self._incorrect_guess = []
         self._user_input = ""
+        self._first_letter = ob[0]
+        self._second_letter = ob[1]
+        self._third_letter = ob[2]
+        self._fourth_letter = ob[3]
+        self._fifth_letter = ob[4]
         
         
     def start_game(self):
@@ -32,7 +38,7 @@ class Director:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
-# The self.user_input arguement didn't exist, so I created it.
+# The self._user_input arguement didn't exist, so I created it.
     def _get_inputs(self):
         """
 
@@ -40,6 +46,7 @@ class Director:
             self (Director): An instance of Director.
         """
         self._user_input = input("Guess a letter [a-z] ")
+
 #We are only using five letter words, so you can reduce the code here.
 #The if statement on line 53 is empty, I added a pass to it so that the code wouldn't
 #complain about being broken.
@@ -55,10 +62,11 @@ class Director:
                 #It needs a list of underscores to loop through 
                 pass
 
-        
+#Do outputs still needs to be done, make sure to use the TerminalService
+#class to do the outputs.        
     def _do_outputs(self):
         """
-        Passes the text to be output to 
+        Passes the text to be output to TerminalService
         Args:
             self (Director): An instance of Director.
         """

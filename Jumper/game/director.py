@@ -1,6 +1,6 @@
 from game.terminal_service import TerminalService
-from game.hider import Hider
-from game.seeker import Seeker
+from game.player import Player
+from game.jumper import Jumper
 
 
 class Director:
@@ -21,10 +21,10 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self._hider = Hider()
-        self._is_playing = True
-        self._seeker = Seeker()
-        self._terminal_service = TerminalService()
+        #self._hider = Hider()
+        #self._is_playing = True
+        #self._seeker = Seeker()
+        #self._terminal_service = TerminalService()
         
     def start_game(self):
         """Starts the game by running the main game loop.

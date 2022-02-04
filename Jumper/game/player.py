@@ -1,6 +1,6 @@
 import random
 
-class Hider:
+class Player:
     """The person hiding from the Seeker. 
     
     The responsibility of Hider is to keep track of its location and distance from the seeker. 

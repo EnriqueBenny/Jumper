@@ -48,7 +48,7 @@ class Director:
         self._user_input = input("Guess a letter [a-z] ")
 
 #We are only using five letter words, so you can reduce the code here.
-#The if statement on line 53 is empty, I added a pass to it so that the code wouldn't
+#The if statement in this method is empty, I added a pass to it so that the code wouldn't
 #complain about being broken.
     def _do_updates(self):
         """

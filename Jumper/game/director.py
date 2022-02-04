@@ -1,6 +1,6 @@
 from game.terminal_service import TerminalService
-from game.hider import Hider
-from game.seeker import Seeker
+from game.player import Player
+from game.jumper import Jumper
 
 
 class Director:

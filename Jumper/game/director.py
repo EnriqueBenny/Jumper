@@ -8,23 +8,19 @@ class Director:
     A code template for a person who directs the game. The responsibility of 
     this class of objects is to keep track of the score and control the 
     sequence of play.
-
     """
 
     def __init__(self):
         """Constructs a new Director.
-        
         Args:
             self (Director): an instance of Director.
         """
-        self._hider = Hider()
         self._is_playing = True
-        self._seeker = Seeker()
         self._terminal_service = TerminalService()
+        self._incorrect_guess = []
         
     def start_game(self):
         """Starts the game by running the main game loop.
-        
         Args:
             self (Director): an instance of Director.
         """

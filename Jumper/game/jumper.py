@@ -18,7 +18,7 @@ class Jumper:
     def get_word(self):
         """Gets the current jumper's word.
         Returns:
-            word: The current word,
+            word: The current word.
         """
         word_pool = ["fuzzy", "abide", "about", "abyss", "carve", "heart", "brain",
         "alice", "actor", "zebra", "yummy", "youth", "youse", "magic"]

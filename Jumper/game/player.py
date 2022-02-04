@@ -14,7 +14,7 @@ class Player:
         Args:
             self (player): An instance of player.
         """
-        self._life = 4
+        
         self._line1 =  '''
                      _____
                         '''
@@ -33,37 +33,13 @@ class Player:
                       / \
                     '''
     
-    def display_parachute(parachute):
+    def display_parachute(self):
         print(f'''
-          _____
-         /_____\
-         \     /
-          \   / 
-            0
-           /|\
-           / \
+                {self._line1}
+                {self._line2}
+                {self._line3}
+                {self._line3}''')
     
-    ''')
-    self._line1 =  '''_____
-                     /_____\
-                     '''
-    def get_hint(self):
-        """Gets a hint for the seeker.
-
-        Args:
-            self (player): An instance of player.
-        Returns:
-            string: A hint for the player.
-        """
-        hint = "(-.-) Nap time."
-        if self._life[-1] == 0:
-            hint = "(;.;) You found me!"
-        elif self._distance[-1] > self._distance[-2]:
-            hint = "(^.^) Getting colder!"
-        elif self._distance[-1] < self._distance[-2]:
-            hint = "(>.<) Getting warmer!"
-        return hint
-
     def is_found(self):
         """Whether or not the letter has been found.
 

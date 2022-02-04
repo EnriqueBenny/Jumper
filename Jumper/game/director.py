@@ -50,12 +50,13 @@ class Director:
             if serching == self.user_input:
                 #Set undercore index i equal to searching
                 #It needs a list of underscores to loop through 
+                pass
 
         
     def _do_outputs(self):
         """
-
+        Passes the text to be output to 
         Args:
             self (Director): An instance of Director.
         """
-        
+        pass

@@ -1,5 +1,6 @@
 class TerminalService:
     """A service that handles terminal operations.
+    
     The responsibility of a TerminalService is to provide input and output operations for the 
     terminal.
     """
@@ -15,7 +16,7 @@ class TerminalService:
             string: The user's input as text.
         """
         return input(prompt)
-        
+      
     def write_text(self, text):
         """Displays the given text on the terminal. 
 

@@ -7,7 +7,6 @@ class TerminalService:
      
     def read_text(self, prompt):
         """Gets text input from the terminal. Directs the user with the given prompt.
-
         Args: 
             self (TerminalService): An instance of TerminalService.
             prompt (string): The prompt to display on the terminal.

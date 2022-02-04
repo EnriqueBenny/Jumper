@@ -16,7 +16,7 @@ class Director:
             self (Director): an instance of Director.
         """
         self._is_playing = True
-        self._player = Jumper()
+        self._jumper = Jumper()
         self._player = Player()
         self._terminal_service = TerminalService()
         self._incorrect_guess = []
@@ -38,15 +38,19 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        new_location = self._terminal_service.read_number(len("\nEnter a location [1-1000]: "), 1)
-        self._seeker.move_location(new_location)
+        self.user_input = input("Guess a letter [a-z] ")
         
     def _do_updates(self):
         """
         Args:
             self (Director): An instance of Director.
         """
-        self._hider.watch_seeker(self._seeker)
+        for i in range(0, len(self._jumper.word)):
+            serching = self._jumper.word[i]
+            if serching == self.user_input:
+                #Set undercore index i equal to searching
+                #It needs a list of underscores to loop through 
+
         
     def _do_outputs(self):
         """
@@ -54,7 +58,4 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        hint = self._hider.get_hint()
-        self._terminal_service.read_number(hint)
-        if self._hider.is_found():
-            self._is_playing = False
+        

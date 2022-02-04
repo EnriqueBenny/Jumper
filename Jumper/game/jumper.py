@@ -13,7 +13,7 @@ class Jumper:
         Args:
             self (Jumper): An instance of Jumper.
         """
-        self._word = ""
+        self.word = ""
         
     def get_word(self):
         """Gets the current jumper's word.
@@ -23,8 +23,8 @@ class Jumper:
         word_pool = ["fuzzy", "abide", "about", "abyss", "carve", "heart", "brain",
         "alice", "actor", "zebra", "yummy", "youth", "youse", "magic"]
         guess = random.choice(word_pool)
-        self._word = guess
-        return self._word
+        self.word = guess
+        return self.word
         
     # def move_location(self, location):
     #     """Sends out the current word as a guess.

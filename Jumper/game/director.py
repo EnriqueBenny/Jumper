@@ -62,6 +62,8 @@ class Director:
                 #It needs a list of underscores to loop through 
                 pass
 
+        # use terminal service to update the player after the guess for the do_outputs
+
 #Do outputs still needs to be done, make sure to use the TerminalService
 #class to do the outputs.        
     def _do_outputs(self):
@@ -70,4 +72,6 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        self._terminal_service.write_text(self, self._player)
+
         pass

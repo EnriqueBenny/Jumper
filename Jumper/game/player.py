@@ -15,11 +15,11 @@ class Player:
             self (player): An instance of player.
         """
         
-        self._line1 =  '''
+        self._line1 =  '''\n
                      _____
                         '''
         self._line2 = '''
-                    /_____\
+                    /_____\\
         '''
         self._line3 = '''
 
@@ -29,8 +29,8 @@ class Player:
         '''
         self._line5 = "0"
         self._line6 = '''
-                      /|\
-                      / \
+                      /|\\
+                      / \\ \n
                     '''
     
     def display_parachute(self):

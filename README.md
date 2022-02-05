@@ -26,6 +26,7 @@ root                    (project root folder)
 * Python 3.8.0
 
 ## Authors
+* Edgar Cobian  (cob19007@byui.edu)
 * Calvin Weaver (weaver95@byui.edu)
 * Cory Barton (coryjbarton@gmail.com)
 * Erik Benson (erikben@byui.edu)

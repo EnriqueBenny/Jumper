@@ -45,7 +45,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._user_input = input("Guess a letter [a-z] ")
+        self._user_input = input("Guess a letter [a-z]: ")
 
 #We are only using five letter words, so you can reduce the code here.
 #The if statement in this method is empty, I added a pass to it so that the code wouldn't

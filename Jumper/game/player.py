@@ -14,6 +14,8 @@ class Player:
         Args:
             self (player): An instance of player.
         """
+        # we need the _ _ _ _ _ as a line 0 that prints out as well. but this one has to be editable so maybe use terminal service
+        # or make it an text string from director?
         
         self._line1 =  '''\n
                      _____

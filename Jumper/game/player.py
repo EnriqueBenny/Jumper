@@ -17,33 +17,23 @@ class Player:
         # we need the _ _ _ _ _ as a line 0 that prints out as well. but this one has to be editable so maybe use terminal service
         # or make it an text string from director?
         
-        self._line1 =  '''\n
-                     _____
-                        '''
-        self._line2 = '''
-                    /_____\\
-        '''
-        self._line3 = '''
-
-                    \     / '''
-        self._line4 = '''
-                     \   /
-        '''
-        self._line5 = "0"
-        self._line6 = '''
-                      /|\\
-                      / \\ \n
-                    '''
+        
     
     def display_parachute(self):
         """Args:
             self (player): An instance of player.
             """
-        print(f'''
-                {self._line1}
-                {self._line2}
-                {self._line3}
-                {self._line3}''')
+        line1 = '  _____'
+        line2 = ' /_____\\'
+        line3 = ' \\     / '
+        line4 = '  \\   /'
+        line5 = "    0"
+        line6 = '   /|\\'
+        line7 = '   / \\ \n'
+        line8 = '^^^^^^^^^'
+        parachute = [line1,line2,line3,line4,line5,line6,line7,line8]
+        
+        return parachute
     
     def is_found(self, jumper_word, jumper_guess):
         """Whether or not the letter has been found.

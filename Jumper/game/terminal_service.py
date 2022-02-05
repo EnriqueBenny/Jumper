@@ -23,4 +23,5 @@ class TerminalService:
             self (TerminalService): An instance of TerminalService.
             text (string): The text to display.
         """
-        print(text)
+        for i in text:
+            print(i, end = ' ')

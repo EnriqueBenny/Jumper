@@ -45,7 +45,7 @@ class Player:
                 {self._line3}
                 {self._line3}''')
     
-    def is_found(self):
+    def is_found(self, jumper_word, jumper_guess):
         """Whether or not the letter has been found.
 
         Args:
@@ -54,7 +54,13 @@ class Player:
         Returns:
             boolean: True if the hider was found; false if otherwise.
         """
-        return (self._distance[-1] == 0)
+        is_found = False
+        for i, letter in enumerate(jumper_word):
+            if letter == jumper_guess:
+                self.guess_word[i] = letter
+                is_found = True
+        
+        return is_found
         
     def watch_seeker(self, seeker):
         """Watches the seeker by keeping track of how far away it is.

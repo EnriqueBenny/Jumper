@@ -26,12 +26,15 @@ class Director:
         self._terminal_service = TerminalService()
         self._incorrect_guess = []
         self._user_input = ""
+        self._letter = ""
         
     def start_game(self):
         """Starts the game by running the main game loop.
         Args:
             self (Director): an instance of Director.
         """
+        self._terminal_service.write_text(self._player.guess_word)
+        print('\n')
         for i in self._visual:
             print(i)
         
@@ -49,6 +52,8 @@ class Director:
             self (Director): An instance of Director.
         """
         self._user_input = input("\r\nGuess a letter [a-z]: ")
+        self._letter = self._user_input
+        
 
 #The if statement in this method is empty, I added a pass to it so that the code wouldn't
 #complain about being broken.
@@ -60,6 +65,7 @@ class Director:
         guess = self._player.is_found(self._jumper.word, self._user_input)
         if guess == False:
             self._visual.pop(0)
+            self._incorrect_guess.append(self._letter) 
         else: 
             guess
         if len(self._visual) == 3:
@@ -82,5 +88,5 @@ class Director:
         print('\n')
         for i in self._visual:
             print(i)
-
+        print(f"incorrect guesses: {self._incorrect_guess}")
         pass

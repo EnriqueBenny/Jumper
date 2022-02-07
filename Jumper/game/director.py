@@ -51,7 +51,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._user_input = input("\r\nGuess a letter [a-z]: ")
+        self._user_input = input("\rGuess a letter [a-z]: ")
         self._letter = self._user_input
         
 
@@ -88,5 +88,5 @@ class Director:
         print('\n')
         for i in self._visual:
             print(i)
-        print(f"incorrect guesses: {self._incorrect_guess}")
+        print(f"incorrect guesses: {str(self._incorrect_guess)[1:-1]}")
         pass

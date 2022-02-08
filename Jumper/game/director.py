@@ -55,7 +55,7 @@ class Director:
         self._letter = self._user_input
 
         while self._letter.isdigit() == True:
-            print("You entered a digit, please enter a character only")
+            print("You entered a digit, please enter a character only!")
             break       
 
 #The if statement in this method is empty, I added a pass to it so that the code wouldn't

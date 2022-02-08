@@ -1,5 +1,3 @@
-#Import os is unused, do we need to keep it?
-import os
 from game.terminal_service import TerminalService
 from game.player import Player
 from game.jumper import Jumper
@@ -46,6 +44,7 @@ class Director:
             self._do_updates()
             self._do_outputs()
 
+    # This method will get the input from the user.
     def _get_inputs(self):
         """
 
@@ -54,7 +53,7 @@ class Director:
         """
         self._user_input = input("\rGuess a letter [a-z]: ")
         self._letter = self._user_input
-
+        #  Will check if user enter just a letters only.
         if self._letter.isdigit() == True:
             print("You entered a digit, please enter a character only!\n")
             Director._get_inputs

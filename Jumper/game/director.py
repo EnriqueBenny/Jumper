@@ -53,7 +53,10 @@ class Director:
         """
         self._user_input = input("\rGuess a letter [a-z]: ")
         self._letter = self._user_input
-        
+
+        while self._letter.isdigit() == True:
+            print("You entered a digit, please enter a character only")
+            break       
 
 #The if statement in this method is empty, I added a pass to it so that the code wouldn't
 #complain about being broken.
@@ -89,4 +92,7 @@ class Director:
         for i in self._visual:
             print(i)
         print(f"incorrect guesses: {str(self._incorrect_guess)[1:-1]}")
-        pass
+        pass     
+            
+        
+      

@@ -25,12 +25,3 @@ class Jumper:
         guess = random.choice(word_pool)
         self.word = guess
         return self.word
-        
-    # def move_location(self, location):
-    #     """Sends out the current word as a guess.
-    #     Args:
-    #         self (Seeker): An instance of Jumper.
-    #         guess (str): The given word.
-    #     """
-    #     word_guess = self._word
-    #     return word_guess

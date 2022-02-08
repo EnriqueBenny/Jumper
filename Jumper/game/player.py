@@ -1,26 +1,23 @@
+from ctypes import alignment
+import tkinter as tk
+from tkinter import *
 class Player:
-    """The person falling with a parachute. 
-    
+    """The person guessing the hidden word to keep the jumper from dying. 
     The responsibility of player is to keep track of its parachute. 
-    
     Attributes:
-        _location (int): The location of the hider (1-1000).
+        _(int): The location of the hider (1-1000).
         _distance (List[int]): The distance from the seeker.
     """
 
     def __init__(self):
         """Constructs a new Player.
-
         Args:
             self (player): An instance of player.
         """
-        # we need the _ _ _ _ _ as a line 0 that prints out as well. but this one has to be editable so maybe use terminal service
-        # or make it an text string from director?
         
-        
-    
     def display_parachute(self):
-        """Args:
+        """ Displays the parachute in the game that represents the Jumper.
+        Args:
             self (player): An instance of player.
             """
         line1 = '  _____'
@@ -37,10 +34,8 @@ class Player:
     
     def is_found(self, jumper_word, jumper_guess):
         """Whether or not the letter has been found.
-
         Args:
             self (player): An instance of player.
-            
         Returns:
             boolean: True if the hider was found; false if otherwise.
         """
@@ -51,12 +46,38 @@ class Player:
                 is_found = True
         
         return is_found
-        
+# Do we need this function? It seems like it needs to be removed.
     def watch_seeker(self, seeker):
         """Watches the seeker by keeping track of how far away it is.
-
         Args:
             self (Hider): An instance of Hider.
         """
         distance = abs(self._location - seeker.get_location())
         self._distance.append(distance)
+
+    def _victory_screen(self):
+        """
+        If the game is won and the player is saved, this method will run
+        and display the player's victory.
+        Args:
+            self (tkinter): an instance of tkinter.
+        """
+        root = tk.Tk()
+        T = tk.Label(root, text="You Saved the Jumper!", height=5, width=25, font=("Arial", 60), fg="gold", bg="blue")
+        T.pack()
+        T.after(5000, lambda:root.destroy())
+        tk.mainloop()
+    
+    def _defeat_screen(self):
+        """
+        If the game is lost and the player dies, this method will run
+        and display the player's defeat.
+        Args:
+            self (tkinter): an instance of tkinter.
+        """
+        root = tk.Tk()
+        T = tk.Label(root, text="Your Jumper Died!", height=5, width=25, font=("Arial", 60), fg="red", bg="black")
+        T.pack()
+        T.after(5000, lambda:root.destroy())
+        tk.mainloop()
+

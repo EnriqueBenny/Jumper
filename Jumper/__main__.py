@@ -1,3 +1,4 @@
+#What is this re, and why is it importing A?
 from re import A
 from game.director import Director
 

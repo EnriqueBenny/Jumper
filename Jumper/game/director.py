@@ -1,8 +1,8 @@
+#Import os is unused, do we need to keep it?
 import os
 from game.terminal_service import TerminalService
 from game.player import Player
 from game.jumper import Jumper
-
 
 class Director:
     """
@@ -10,7 +10,6 @@ class Director:
     this class of objects is to keep track of the score and control the 
     sequence of play.
     """
-
     def __init__(self):
         """Constructs a new Director.
         Args:
@@ -24,6 +23,8 @@ class Director:
         # Setup word that contains user's guesses
         self._player.guess_word = ['_'] * len(self._jumper.word)
         self._terminal_service = TerminalService()
+        self._victory = False
+        self._progress_tracking = ""
         self._incorrect_guess = []
         self._user_input = ""
         self._letter = ""
@@ -44,7 +45,7 @@ class Director:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
-# The self._user_input arguement didn't exist, so I created it.
+
     def _get_inputs(self):
         """
 
@@ -54,12 +55,10 @@ class Director:
         self._user_input = input("\rGuess a letter [a-z]: ")
         self._letter = self._user_input
 
-        while self._letter.isdigit() == True:
-            print("You entered a digit, please enter a character only!")
-            break       
+        if self._letter.isdigit() == True:
+            print("You entered a digit, please enter a character only!\n")
+            Director._get_inputs
 
-#The if statement in this method is empty, I added a pass to it so that the code wouldn't
-#complain about being broken.
     def _do_updates(self):
         """
         Args:
@@ -71,14 +70,17 @@ class Director:
             self._incorrect_guess.append(self._letter) 
         else: 
             guess
+            self._progress_tracking += self._user_input
+
         if len(self._visual) == 3:
             self._visual.insert(0,"    X")
             self._is_playing = False
+            Player._defeat_screen(self)
 
+        if self._jumper.word == self._progress_tracking:
+            self._victory = True
         # use terminal service to update the player after the guess for the do_outputs
-
-#Do outputs still needs to be done, make sure to use the TerminalService
-#class to do the outputs.        
+      
     def _do_outputs(self):
         """
         Passes the text to be output to TerminalService
@@ -86,13 +88,15 @@ class Director:
             self (Director): An instance of Director.
         """
 
-
         self._terminal_service.write_text(self._player.guess_word)
         print('\n')
         for i in self._visual:
             print(i)
         print(f"incorrect guesses: {str(self._incorrect_guess)[1:-1]}")
-        pass     
+        
+        if self._victory == True:
+            Player._victory_screen(self)
+            self._is_playing = False
             
         
       

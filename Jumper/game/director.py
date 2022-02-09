@@ -80,14 +80,14 @@ class Director:
         else: 
             guess
             self._progress_tracking += self._user_input
-        #If the game is lost, this will replace the jumper's head with an 'x'
-        if len(self._visual) == 3:
-            self._visual.insert(0,"    X")
-            self._is_playing = False
-            Player._defeat_screen(self)
         # If this statement is true, then the player wins the game.
         if self._jumper.word == self._progress_tracking:
             self._victory = True
+        #If the game is lost, this will replace the jumper's head with an 'x'
+        if len(self._visual) == 2:
+            self._visual.insert(0,"    X")
+            self._is_playing = False
+            Player._defeat_screen(self)
       
     def _do_outputs(self):
         """

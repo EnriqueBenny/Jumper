@@ -25,7 +25,8 @@ class Director:
         # Determines victory
         self._victory = False
         # Tracks the correct guesses 
-        self._progress_tracking = ""
+        self._progress_tracking = []
+        self._word_list = list(self._jumper.word)
         # Tracks the incorrect guesses
         self._incorrect_guess = []
         # Takes the user inputs to be processed
@@ -76,18 +77,17 @@ class Director:
         if guess == False:
             self._visual.pop(0)
             self._incorrect_guess.append(self._letter) 
-        # Correct guesses, line 82 is used to track the word as a whole to determine victory.
         else: 
             guess
-            self._progress_tracking += self._user_input
-            # If this statement is true, then the player wins the game.
-            if self._jumper.word == self._progress_tracking:
-                self._victory = True
+            self._progress_tracking.append(self._user_input)
         #If the game is lost, this will replace the jumper's head with an 'x'
         if len(self._visual) == 3:
             self._visual.insert(0,"    X")
             self._is_playing = False
             Player._defeat_screen(self)
+        # If this statement is true, then the player wins the game.
+        self._victory = Player.win_condition(self, self._word_list, self._progress_tracking)
+            
       
     def _do_outputs(self):
         """

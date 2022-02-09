@@ -23,7 +23,7 @@ root                    (project root folder)
 ```
 
 ## Required Technologies
-* Python 3.8.0
+* Python 3.9.4
 
 ## Authors
 * Edgar Cobian  (cob19007@byui.edu)

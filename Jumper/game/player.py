@@ -19,6 +19,7 @@ class Player:
         """ Displays the parachute in the game that represents the Jumper.
         Args:
             self (player): An instance of player.
+            Returns (obj): parachute
             """
         line1 = '  _____'
         line2 = ' /_____\\'
@@ -29,23 +30,43 @@ class Player:
         line7 = '   / \\ \n'
         line8 = '^^^^^^^^^'
         parachute = [line1,line2,line3,line4,line5,line6,line7,line8]
+        # parachute1 = [line1,line2,line3,line4]
+        # parachute2 = [line5]
+        # parachute3 = [line6,line7,line8]
         
-        return parachute
+        return parachute #parachute1, parachute2, parachute3
     
     def is_found(self, jumper_word, jumper_guess):
         """Whether or not the letter has been found.
         Args:
             self (player): An instance of player.
         Returns:
-            boolean: True if the hider was found; false if otherwise.
+            boolean: True if the letter was found; false if otherwise.
         """
         is_found = False
         for i, letter in enumerate(jumper_word):
             if letter == jumper_guess:
                 self.guess_word[i] = letter
                 is_found = True
-        
         return is_found
+
+    def win_condition(self, word_list, guess_list):
+        """Whether or not the words match up.
+        Args: 
+            self (player): An instance of player.
+        Returns:
+            boolean: True if they match, False if they don't.
+        """
+        count = 0
+        condition = False
+        for i in word_list:
+            if i in guess_list:
+                count += 1
+            else:
+                pass
+        if count == 5:
+            condition = True
+        return condition
 
     def _victory_screen(self):
         """
@@ -57,7 +78,7 @@ class Player:
         root = tk.Tk()
         T = tk.Label(root, text="You Saved the Jumper!", height=5, width=25, font=("Arial", 60), fg="gold", bg="blue")
         T.pack()
-        T.after(5000, lambda:root.destroy())
+        T.after(1000, lambda:root.destroy())
         tk.mainloop()
     
     def _defeat_screen(self):
@@ -70,6 +91,6 @@ class Player:
         root = tk.Tk()
         T = tk.Label(root, text="Your Jumper Died!", height=5, width=25, font=("Arial", 60), fg="red", bg="black")
         T.pack()
-        T.after(5000, lambda:root.destroy())
+        T.after(1000, lambda:root.destroy())
         tk.mainloop()
 

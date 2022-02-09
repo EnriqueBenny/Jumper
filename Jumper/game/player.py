@@ -30,11 +30,8 @@ class Player:
         line7 = '   / \\ \n'
         line8 = '^^^^^^^^^'
         parachute = [line1,line2,line3,line4,line5,line6,line7,line8]
-        # parachute1 = [line1,line2,line3,line4]
-        # parachute2 = [line5]
-        # parachute3 = [line6,line7,line8]
-        
-        return parachute #parachute1, parachute2, parachute3
+    
+        return parachute
     
     def is_found(self, jumper_word, jumper_guess):
         """Whether or not the letter has been found.
@@ -51,7 +48,8 @@ class Player:
         return is_found
 
     def win_condition(self, word_list, guess_list):
-        """Whether or not the words match up.
+        """Whether or not the words match up, determines if the win condition has been met.
+        This is done by incrementing a counter for each correct letter.
         Args: 
             self (player): An instance of player.
         Returns:
@@ -64,7 +62,7 @@ class Player:
                 count += 1
             else:
                 pass
-        if count == 5:
+        if count == len(word_list):
             condition = True
         return condition
 

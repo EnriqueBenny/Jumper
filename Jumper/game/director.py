@@ -26,6 +26,7 @@ class Director:
         self._victory = False
         # Tracks the correct guesses 
         self._progress_tracking = []
+        # Splits the correct word into a list to be compared with self._progress_tracking
         self._word_list = list(self._jumper.word)
         # Tracks the incorrect guesses
         self._incorrect_guess = []
@@ -45,8 +46,6 @@ class Director:
             print(i)
         # Runs Game loop
         while self._is_playing:
-            # Clear screen each iteration cross platform (Note: doesnt let me start the game with displaying the visual)
-            #os.system('cls' if os.name=='nt' else 'clear')
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
@@ -79,6 +78,7 @@ class Director:
             self._incorrect_guess.append(self._letter) 
         else: 
             guess
+            #appends the correct guess to a list to be compared with the correct word.
             self._progress_tracking.append(self._user_input)
         #If the game is lost, this will replace the jumper's head with an 'x'
         if len(self._visual) == 3:
@@ -86,9 +86,9 @@ class Director:
             self._is_playing = False
             Player._defeat_screen(self)
         # If this statement is true, then the player wins the game.
+        # It compares the two lists to see if they are the same.
         self._victory = Player.win_condition(self, self._word_list, self._progress_tracking)
             
-      
     def _do_outputs(self):
         """
         Passes the text to be output to TerminalService
@@ -106,6 +106,3 @@ class Director:
         if self._victory == True:
             Player._victory_screen(self)
             self._is_playing = False
-            
-        
-      

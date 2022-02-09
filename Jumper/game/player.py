@@ -55,6 +55,8 @@ class Player:
         Returns:
             boolean: True if they match, False if they don't.
         """
+        # If the count reaches the same number as the len() of the word_list, condition will be
+        # returned as True, meaning the player wins the game.
         count = 0
         condition = False
         for i in word_list:

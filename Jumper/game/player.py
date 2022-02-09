@@ -46,14 +46,6 @@ class Player:
                 is_found = True
         
         return is_found
-# Do we need this function? It seems like it needs to be removed.
-    def watch_seeker(self, seeker):
-        """Watches the seeker by keeping track of how far away it is.
-        Args:
-            self (Hider): An instance of Hider.
-        """
-        distance = abs(self._location - seeker.get_location())
-        self._distance.append(distance)
 
     def _victory_screen(self):
         """

@@ -1,3 +1,4 @@
+
 from game.terminal_service import TerminalService
 from game.player import Player
 from game.jumper import Jumper
@@ -20,10 +21,15 @@ class Director:
         self._visual = Player.display_parachute(self)
         # Setup word that contains user's guesses
         self._player.guess_word = ['_'] * len(self._jumper.word)
+        # Interacts with TerminalService
         self._terminal_service = TerminalService()
+        # Determines victory
         self._victory = False
+        # Tracks the correct guesses 
         self._progress_tracking = ""
+        # Tracks the incorrect guesses
         self._incorrect_guess = []
+        # Takes the user inputs to be processed
         self._user_input = ""
         self._letter = ""
         
@@ -32,11 +38,12 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        # Outputs to Terminal
         self._terminal_service.write_text(self._player.guess_word)
         print('\n')
         for i in self._visual:
             print(i)
-        
+        # Runs Game loop
         while self._is_playing:
             # Clear screen each iteration cross platform (Note: doesnt let me start the game with displaying the visual)
             #os.system('cls' if os.name=='nt' else 'clear')
@@ -47,16 +54,17 @@ class Director:
     # This method will get the input from the user.
     def _get_inputs(self):
         """
-
+        Gets the inputs from the player to be sent to other methods to determine validity.
         Args:
             self (Director): An instance of Director.
         """
+        # Gets the player's inputs
         self._user_input = input("\rGuess a letter [a-z]: ")
         self._letter = self._user_input
-        #  Will check if user enter just a letters only.
+        # Will check if user enter just a letters only.
         if self._letter.isdigit() == True:
             print("You entered a digit, please enter a character only!\n")
-            Director._get_inputs
+            Director._get_inputs(self)
 
     def _do_updates(self):
         """

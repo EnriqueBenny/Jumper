@@ -78,7 +78,7 @@ class Player:
         root = tk.Tk()
         T = tk.Label(root, text="You Saved the Jumper!", height=5, width=25, font=("Arial", 60), fg="gold", bg="blue")
         T.pack()
-        T.after(1000, lambda:root.destroy())
+        T.after(3000, lambda:root.destroy())
         tk.mainloop()
     
     def _defeat_screen(self):
@@ -91,6 +91,6 @@ class Player:
         root = tk.Tk()
         T = tk.Label(root, text="Your Jumper Died!", height=5, width=25, font=("Arial", 60), fg="red", bg="black")
         T.pack()
-        T.after(1000, lambda:root.destroy())
+        T.after(3000, lambda:root.destroy())
         tk.mainloop()
 

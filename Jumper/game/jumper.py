@@ -20,6 +20,7 @@ class Jumper:
         Returns:
             word: The current word.
         """
+        #The List of Words the game will use.
         word_pool = ["fuzzy", "abide", "about", "abyss", "carve", "heart", "brain",
         "alice", "actor", "zebra", "yummy", "youth", "youse", "magic"]
         guess = random.choice(word_pool)

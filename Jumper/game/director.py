@@ -1,4 +1,3 @@
-
 from game.terminal_service import TerminalService
 from game.player import Player
 from game.jumper import Jumper
@@ -71,22 +70,24 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        #Sends the guess and the word into the is_found method in the Player Class
         guess = self._player.is_found(self._jumper.word, self._user_input)
+        # Puts the incorrect guesses in a list to display to the player.
         if guess == False:
             self._visual.pop(0)
             self._incorrect_guess.append(self._letter) 
+        # Correct guesses, line 82 is used to track the word as a whole to determine victory.
         else: 
             guess
             self._progress_tracking += self._user_input
-
+        #If the game is lost, this will replace the jumper's head with an 'x'
         if len(self._visual) == 3:
             self._visual.insert(0,"    X")
             self._is_playing = False
             Player._defeat_screen(self)
-
+        # If this statement is true, then the player wins the game.
         if self._jumper.word == self._progress_tracking:
             self._victory = True
-        # use terminal service to update the player after the guess for the do_outputs
       
     def _do_outputs(self):
         """
@@ -94,13 +95,14 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-
+        # Prints the current state of the guesses.
         self._terminal_service.write_text(self._player.guess_word)
         print('\n')
         for i in self._visual:
             print(i)
+        # Prints the incorrect guesses.
         print(f"incorrect guesses: {str(self._incorrect_guess)[1:-1]}")
-        
+        #Displays the victory tkinter screen
         if self._victory == True:
             Player._victory_screen(self)
             self._is_playing = False

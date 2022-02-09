@@ -5,8 +5,8 @@ class Player:
     """The person guessing the hidden word to keep the jumper from dying. 
     The responsibility of player is to keep track of its parachute. 
     Attributes:
-        _(int): The location of the hider (1-1000).
-        _distance (List[int]): The distance from the seeker.
+        _(parachute): the parachute used in the game to represent the Jumper.
+        
     """
 
     def __init__(self):
